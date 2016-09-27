@@ -1,5 +1,5 @@
 <?php
 
-for($x=35; ($x >= 25); $x--); {
-    echo "hoppelepee";
+for($x=0; $x <= 9; $x++) {
+    echo "hoppelepee <br>";
 }
