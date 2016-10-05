@@ -1,11 +1,11 @@
 
 <?php
-	function telOp($C) {
+	function tempratuur($C) {
         $F = $C * (9/5) + 32;
         return $F;
     }
 
-    echo "$F";
+    echo  tempratuur(30);
 
 
 
