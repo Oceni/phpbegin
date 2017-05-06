@@ -11,8 +11,16 @@ handlers:
   application_readable: true
 
 # PHP Scriptbestanden.
+
+
+- url: /css
+  static_dir: css
+
+- url: /form.php
+  script: form.php
+
+- url: /.*
+  script: header.php
+
 - url: /(.+\.php)$
   script: \1
-  
-- url: /
-  script: index.php

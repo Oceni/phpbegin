@@ -1,5 +1,5 @@
 <?php
- class liedje {
+ class Liedje {
      private $titel;
      private $artiest;
     function __construct($t, $a){
