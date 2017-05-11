@@ -1,35 +1,98 @@
-<!doctype HTML>
-<html>
-<head></head>
-<body>
 <?php
-if (isset($_GET["error"])){
-    echo "<p style=\"color:red;\">Voer alle gegevens in a.u.b.</p>";
+
+include("header.php");
+?>
+
+<?php
+
+$_POST = array(); //workaround for broken PHPstorm
+parse_str(file_get_contents('php://input'), $_POST);
+
+
+// define variables and set to empty values
+$nameErr = $emailErr = $websiteErr = $commentErr = $genderErr= "";
+$name = $email = $website = $comment= $gender=  "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (empty($_POST["naam"])) {
+        $nameErr = "Name is required";
+    } else {
+        $name = test_input($_POST["naam"]);
+    }
+
+    if (empty($_POST["adres"])) {
+        $emailErr = "Adres is required";
+    } else {
+        $email = test_input($_POST["adres"]);
+    }
+
+    if (empty($_POST["email"])) {
+        $websiteErr = "Email is required";
+    } else {
+        $website = test_input($_POST["email"]);
+    }
+
+    if (empty($_POST["wachtwoord"])) {
+        $commentErr = "Wachtwoord is required";
+    } else {
+        $comment = test_input($_POST["wachtwoord"]);
+    }
+
+    if (empty($_POST["gender"])) {
+        $genderErr = "Gender is required";
+    } else {
+        $gender = test_input($_POST["gender"]);
+    }
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 ?>
-<form action="return.php" method="POST">
-    <table>
-        <tr>
-            <td><label for="naam">Naam :</label></td>
-            <td><input type="text" name="naam"></td>
-        </tr>
-        <tr>
-            <td><label for="adres">Adres :</label></td>
-            <td><input type="text" name="adres"></td>
-        </tr>
-        <tr>
-            <td><label for="email">Email :</label></td>
-            <td><input type="text" name="email"></td>
-        </tr>
-        <tr>
-            <td><label for="wachtwoord">Wachtwoord :</label></td>
-            <td><input type="password" name="wachtwoord"></td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align:right;"><input type="submit" name="knop" value="versturen"></td>
-        </tr>
-    </table>
+
+<h2>PHP Form Validation Example</h2>
+<p><span class="error">* required field.</span></p>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    Name: <input type="text" name="naam">
+    <span class="error">* <?php echo $nameErr;?></span>
+    <br><br>
+    adres: <input type="text" name="adres">
+    <span class="error">* <?php echo $emailErr;?></span>
+    <br><br>
+    E-mail: <input type="text" name="email">
+    <span class="error">* <?php echo $websiteErr;?></span>
+    <br><br>
+    Wachtwoord: <input type="password" name="wachtwoord">
+    <span class="error">* <?php echo $commentErr;?></span>
+    <br><br>
+
+    Gender:
+    <input type="radio" name="gender" value="female">Female
+    <input type="radio" name="gender" value="male">Male
+    <span class="error">* <?php echo $genderErr;?></span>
+    <br><br>
+    <input type="submit" name="submit" value="Submit">
 </form>
-</body>
-</html>ter.php"); ?>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $name;
+echo "<br>";
+echo $email;
+echo "<br>";
+echo $website;
+echo "<br>";
+echo $comment;
+echo "<br>";
+echo $gender;
+?>
+
+<?php
+include("footer.php");
+?>
+
 
