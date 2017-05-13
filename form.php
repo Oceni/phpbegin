@@ -34,18 +34,16 @@ include("footer.php");
 
 include("header.php");
 
-?><br>
+?>
+
+<?php
+$_SESSION['naam']="klaas";
+$_SESSION['baas']="Xavier";
 
 
-<Form action="001Testpagina.php" method="POST">
-    <input type="text" name="naam" value=""><br>
-    <input type="text" name="adres" value=""><br>
-    <input type="email" name="email" value=""><br>
-    <input type="password" name="wachtwoord" value=""><br>
-    <input type="submit" name="verzenden">
+echo print_r($_SESSION);
 
-</Form>
-
+?>
  <?php
 
 include("footer.php");

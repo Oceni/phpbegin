@@ -1,6 +1,3 @@
-
-
-
 <?php
 /*
 if(!isset($_POST['name'], $_POST['age'])){
@@ -10,7 +7,7 @@ if(!isset($_POST['name'], $_POST['age'])){
     echo $name." and" .$age." are avaible";
 }
 
-*/?>
+*/ ?>
 
 
 <?php
@@ -28,7 +25,7 @@ if($name=="" || $addres=="" || $email=="" || $wachtwoord==""){
 }
 
 
-*/?>
+*/ ?>
 
 
 
@@ -39,120 +36,45 @@ if($name=="" || $addres=="" || $email=="" || $wachtwoord==""){
 include("header.php");
 ?>
 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+
+</head>
+<body>
+
 <?php
-
-$_POST = array(); //workaround for broken PHPstorm
-parse_str(file_get_contents('php://input'), $_POST);
-
-
-// define variables and set to empty values
-$nameErr = $emailErr = $websiteErr = $commentErr = $genderErr= "";
-$name = $email = $website = $comment= $gender=  "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["naam"])) {
-        $nameErr = "Name is required";
-    } else {
-        $name = test_input($_POST["naam"]);
+if (isset($_GET['kan'])) {
+    foreach ($_GET['beast'] as $beast) {
+        print $beast;
     }
-
-    if (empty($_POST["adres"])) {
-        $emailErr = "Adres is required";
-    } else {
-        $email = test_input($_POST["adres"]);
-    }
-
-    if (empty($_POST["email"])) {
-        $websiteErr = "Email is required";
-    } else {
-        $website = test_input($_POST["email"]);
-    }
-
-    if (empty($_POST["wachtwoord"])) {
-        $commentErr = "Wachtwoord is required";
-    } else {
-        $comment = test_input($_POST["wachtwoord"]);
-    }
-
-    if (empty($_POST["gender"])) {
-        $genderErr = "Gender is required";
-    } else {
-        $gender = test_input($_POST["gender"]);
-    }
-}
-
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
 }
 ?>
 
-<h2>PHP Form Validation Example</h2>
-<p><span class="error">* required field.</span></p>
-
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    Name: <input type="text" name="naam">
-    <span class="error">* <?php echo $nameErr;?></span>
-    <br><br>
-    adres: <input type="text" name="adres">
-    <span class="error">* <?php echo $emailErr;?></span>
-    <br><br>
-    E-mail: <input type="text" name="email">
-    <span class="error">* <?php echo $websiteErr;?></span>
-    <br><br>
-    Wachtwoord: <input type="password" name="wachtwoord">
-    <span class="error">* <?php echo $commentErr;?></span>
-    <br><br>
-
-    Gender:
-    <input type="radio" name="gender" value="female">Female
-    <input type="radio" name="gender" value="male">Male
-    <span class="error">* <?php echo $genderErr;?></span>
-    <br><br>
-    <input type="submit" name="submit" value="Submit">
+<form action="#" method="GET">
+    <select name="beast[]">
+        <option value='<img src="leeuw.jpg"'>Leeuw</option>
+        <option value='<img src="paard.jpg"'>paard</option>
+        <option value='<img src="beer.jpg" '>beer</option>
+        <option value='<img src="hond.jpg" '>hond</option>
+        <option value="<img sr-=-"
+    </select>
+    <input type="submit" name="kan" value="verzenden">
 </form>
+}
 
-<?php
-echo "<h2>Your Input:</h2>";
-echo $name;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $website;
-echo "<br>";
-echo $comment;
-echo "<br>";
-echo $gender;
-?>
+
+</body>
+
+
+</html>
+
 
 <?php
 include("footer.php");
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!--
@@ -200,16 +122,16 @@ if(!count ($messages)==0) {
     echo "Welkom my brother meesterplusser" . $_GET["inlognaam"];
 
 
-    */?>
+    */ ?>
 
 
-    <div style="background-color:<?php /*echo $_GET["wachtwoord"]; */?>; height:200px; width:200px"</div>
+    <div style="background-color:<?php /*echo $_GET["wachtwoord"]; */ ?>; height:200px; width:200px"</div>
 
     <?php
 /*}
     include("footer.php");
 
-*/?>
+*/ ?>
 
     <head>
     <link rel="stylesheet" type="text/css" href="mystyle.css";
