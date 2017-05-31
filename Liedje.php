@@ -1,46 +1,54 @@
 <?php
- class Liedje {
-     private $titel;
-     private $artiest;
-    function __construct($t, $a){
-     $this->titel=$t;
+class liedje
+{
+
+    private $titel;
+    private $artiest;
+     // hiermee kijk je welk programma hoort bij welke liedje
+
+    function __construct($t,$a)     //dit word aangeroepen zolang er van een nieuwe klasse een ob ject word gemaakt
+    {
+        $this->titel=$t;
         $this->artiest=$a;
+
+
     }
 
-     /**
-      * @return mixed
-      */
-     public function getTitel()
-     {
-         return $this->titel;
 
-     }
+    //pakt de waarde van de t
 
-     /**
-      * @param mixed $titel
-      */
-     public function setTitel($titel)
-     {
-         $this->titel = $titel;
-         return $this;
-     }
+    public function getTitel()
+    {
+        return $this->titel;
+    }
 
-     /**
-      * @return mixed
-      */
-     public function getArtiest()
-     {
-         return $this->artiest;
-     }
-
-     /**
-      * @param mixed $artiest
-      */
-     public function setArtiest($artiest)
-     {
-         $this->artiest = $artiest;
-         return $this;
-     }
+    // zet de waarde van de
 
 
- }
+    public function setTitel($titel){
+
+        $this->titel=$titel;
+        return $this;
+}
+
+
+
+//pakt de waarde van de artiest
+
+
+public function getArtiest()
+{
+    return $this->artiest;
+
+}
+
+
+//zet de waarde van artiest
+
+public function setArtiest($artiest){
+
+    $this->artiest=$artiest;
+    return $this;
+}
+
+}
