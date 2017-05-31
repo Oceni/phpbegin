@@ -1,6 +1,6 @@
-
+<!--
 <?php
-
+/*
 class bevrijding{
 
 
@@ -28,10 +28,10 @@ $herstel->setKleur("green");
 echo $herstel->bidden();
 
 
-?>
+*/?>
 
 
-
+-->
 
 
 
@@ -45,7 +45,7 @@ echo $herstel->bidden();
 
 
 <?php
-/*
+
 include_once('0011Radiozender.php');
 include_once('Liedje.php');
 
@@ -72,7 +72,7 @@ foreach($ditRadioProgramma->getLiedjes() as $liedje){
 
 echo $liedje->getTitel()."-".$liedje->getArtiest()."<br>";
 }
-*/?>
+?>
 
 
 
