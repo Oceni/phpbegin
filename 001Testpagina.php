@@ -43,9 +43,9 @@ echo $herstel->bidden();
 
 
 
-
+<!--
 <?php
-
+/*
 include_once('0011Radiozender.php');
 include_once('Liedje.php');
 
@@ -72,13 +72,13 @@ foreach($ditRadioProgramma->getLiedjes() as $liedje){
 
 echo $liedje->getTitel()."-".$liedje->getArtiest()."<br>";
 }
-?>
+*/?>
 
 
 
 
 
-
+-->
 
 
 
@@ -154,44 +154,82 @@ header('location: 0010Login.php');
 -->
 
 
+<?php
+/*
+require 'Tester.php';
 
+$foo= new Foo();
+$foo->bar()->baz();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/?>
 
 
 <?php
-/*
+class Calculator
+{
+
+    protected $result;
+    protected $operation;
+
+    public function setOperation(OperatorInterface $operation)
+    {
+
+        $this->operation = $operation;
+
+
+    }
+
+    public function calculate(){
+
+        foreach(func_get_args() as $number){
+            $this->result = $this->operation->run($number, $this->result);
+        }
+    }
+
+
+    public function getResult(){
+
+        return $this->result;
+    }
+}
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+/*/*
     include("header.php");
 
 
@@ -228,16 +266,16 @@ if(!count ($messages)==0) {
     echo "Welkom my brother meesterplusser" . $_GET["inlognaam"];
 
 
-    */ ?>
+    */ */?>
 
 
-    <div style="background-color:<?php /*echo $_GET["wachtwoord"]; */ ?>; height:200px; width:200px"</div>
+    <div style="background-color: /*/*echo $_GET["wachtwoord"]; */ */?>; height:200px; width:200px"</div>
 
-    <?php
-/*}
+
+/*/*}
     include("footer.php");
 
-*/ ?>
+*/ */?>
 
     <head>
     <link rel="stylesheet" type="text/css" href="mystyle.css";
